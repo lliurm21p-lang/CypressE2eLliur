@@ -1,0 +1,27 @@
+name: Pruebas E2E Cypress
+
+# Esto le dice a GitHub que corra las pruebas cada vez que hagas un "push"
+on: [push] 
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Ejecutar pruebas de Cypress
+        # Esta acción oficial instala Node, hace npm install y corre las pruebas en Headless
+        uses: cypress-io/github-action@v6
+        env:
+          # Aquí inyectamos las variables de entorno de forma segura
+          CYPRESS_user_name: ${{ secrets.USER_NAME }}
+          CYPRESS_user_password: ${{ secrets.USER_PASSWORD }}
+
+      - name: Guardar Reporte Mochawesome
+        # always() asegura que el reporte se guarde incluso si una prueba falla
+        if: always() 
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-cypress
+          path: cypress/reports/html
