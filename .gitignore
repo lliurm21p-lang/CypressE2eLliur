@@ -1,0 +1,10 @@
+# Secretos y configuración personal
+cypress.env.json
+
+# Dependencias de Node
+node_modules/
+
+# Evidencia de pruebas (opcional, para no llenar tu repo de videos)
+cypress/videos/
+cypress/screenshots/
+cypress/reports/

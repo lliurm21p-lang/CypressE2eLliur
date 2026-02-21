@@ -1,0 +1,23 @@
+[
+  {
+    "testName": "Debe loguearse con usuario estándar",
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "shouldFail": false,
+    "expectedUrl": "/inventory.html"
+  },
+  {
+    "testName": "Debe mostrar error con usuario bloqueado",
+    "username": "locked_out_user",
+    "password": "secret_sauce",
+    "shouldFail": true,
+    "expectedError": "Sorry, this user has been locked out"
+  },
+  {
+    "testName": "Debe mostrar error con credenciales inventadas",
+    "username": "usuario_falso",
+    "password": "clave_falsa",
+    "shouldFail": true,
+    "expectedError": "Username and password do not match any user"
+  }
+]
