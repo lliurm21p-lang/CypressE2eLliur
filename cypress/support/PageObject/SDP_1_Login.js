@@ -14,4 +14,4 @@ class LoginSDP {
   }
 }
 
-export const SDPlogin = new LoginSDP();
+export const SDPLogin = new LoginSDP();

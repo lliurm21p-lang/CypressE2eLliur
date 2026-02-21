@@ -1,4 +1,3 @@
-import { SDPlogin } from '../support/PageObject/SDP_1_login';
 import { inventory } from "../support/PageObject/SDP_2_Inventory";
 import { carrito } from "../support/PageObject/SDP_3_CartSDP";
 import { FullCheckout } from '../support/PageObject/SDP_4_EndtoEnd';
