@@ -1,11 +1,14 @@
-import { SDPLogin } from '../PageObject/SDP_1_Login';
+// 1. Agregamos 'support' a la ruta y unificamos la minúscula en SDPlogin
+import { SDPlogin } from '../support/PageObject/SDP_1_Login';
+
 // Importamos el JSON directamente (Síncrono)
 const testData = require('../fixtures/SDP_users.json'); 
 
 describe('Autentication - Data Driven Testing', () => {
 
   beforeEach(() => {
-    SDPLogin.visit();
+    // 2. Usamos la variable corregida
+    SDPlogin.visit();
   });
 
   // Iteramos sobre el arreglo del JSON
@@ -13,7 +16,8 @@ describe('Autentication - Data Driven Testing', () => {
     
     // Inyectamos el nombre del test dinámicamente
     it(data.testName, () => {
-      SDPLogin.login(data.username, data.password);
+      // 3. Usamos la variable corregida
+      SDPlogin.login(data.username, data.password);
 
       // Lógica condicional basada en el JSON
       if (data.shouldFail) {
