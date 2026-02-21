@@ -1,4 +1,4 @@
-import { SDPLogin } from './PageObject/SDP_1_Login';
+import { SDPLogin } from '../PageObject/SDP_1_Login';
 // Importamos el JSON directamente (Síncrono)
 const testData = require('../fixtures/SDP_users.json'); 
 
