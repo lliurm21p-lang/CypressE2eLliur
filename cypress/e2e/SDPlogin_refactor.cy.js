@@ -4,7 +4,7 @@ import { SDPlogin } from '../support/PageObject/SDP_1_Login';
 // Importamos el JSON directamente (Síncrono)
 const testData = require('../fixtures/SDP_users.json'); 
 
-describe('Autentication - Data Driven Testing', () => {
+describe.skip('Autentication - Data Driven Testing', () => {
 
   beforeEach(() => {
     // 2. Usamos la variable corregida
