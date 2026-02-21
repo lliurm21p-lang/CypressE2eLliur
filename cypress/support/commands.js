@@ -1,6 +1,6 @@
-import { SDPlogin } from './PageObject/SDP_1_login';
+import { SDPLogin } from './PageObject/SDP_1_login';
 
 Cypress.Commands.add('loginSauceDemo', (username, password) => {
-  SDPlogin.visit();
-  SDPlogin.login(username, password);
+  SDPLogin.visit();
+  SDPLogin.login(username, password);
 });
