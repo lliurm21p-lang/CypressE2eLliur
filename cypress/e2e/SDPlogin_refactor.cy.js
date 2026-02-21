@@ -5,7 +5,7 @@ const testData = require('../fixtures/SDP_users.json');
 describe('Autentication - Data Driven Testing', () => {
 
   beforeEach(() => {
-    SDPlogin.visit();
+    SDPLogin.visit();
   });
 
   // Iteramos sobre el arreglo del JSON
@@ -13,7 +13,7 @@ describe('Autentication - Data Driven Testing', () => {
     
     // Inyectamos el nombre del test dinámicamente
     it(data.testName, () => {
-      SDPlogin.login(data.username, data.password);
+      SDPLogin.login(data.username, data.password);
 
       // Lógica condicional basada en el JSON
       if (data.shouldFail) {
