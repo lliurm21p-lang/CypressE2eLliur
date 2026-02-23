@@ -2,6 +2,8 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
 
+  // Especifica el ID del proyecto en Cypress Cloud.
+  projectId: "<Please create a project in Cypress Cloud>",
   // Especifica el reportero que se utilizará para los resultados de las pruebas.
   // 'cypress-mochawesome-reporter' genera informes HTML visuales y detallados.
   reporter: 'cypress-mochawesome-reporter',

@@ -1,7 +1,7 @@
 describe('Login Asserts', () => {
 
   beforeEach(() => {
-    cy.loginSauceDemo(Cypress.env('user_name'), Cypress.env('user_password'));
+    cy.loginSauceDemo(cy.env('user_name'), cy.env('user_password'));
   });
 
   it('Succesfull login with environment variables', () => {
