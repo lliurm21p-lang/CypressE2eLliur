@@ -4,7 +4,7 @@ import { carrito } from "../support/PageObject/SDP_3_CartSDP";
 describe('Cart Interaction', () => {
 
   beforeEach(() => {
-    cy.loginSauceDemo(Cypress.env('user_name'), Cypress.env('user_password'));
+    cy.loginSauceDemo(cy.env('user_name'), cy.env('user_password'));
   });
 
       it('Add and remove products from cart', () => {

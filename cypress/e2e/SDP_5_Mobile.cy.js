@@ -1,7 +1,7 @@
 describe('Mobile Test', { viewportWidth: 375, viewportHeight: 812 }, () => {
 
     beforeEach(() => {
-        cy.loginSauceDemo(Cypress.env('user_name'), Cypress.env('user_password'));
+        cy.loginSauceDemo(cy.env('user_name'), cy.env('user_password'));
     });
 
     it('Open burguer menu', () => {

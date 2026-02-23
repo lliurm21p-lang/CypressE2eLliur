@@ -3,7 +3,7 @@ import { inventory } from "../support/PageObject/SDP_2_Inventory";
 describe('Inventory interaction', () => {
 
   beforeEach(() => {
-    cy.loginSauceDemo(Cypress.env('user_name'), Cypress.env('user_password'));
+    cy.loginSauceDemo(cy.env('user_name'), cy.env('user_password'));
   });
 
   it('Add and delete products from inventory', () => {
