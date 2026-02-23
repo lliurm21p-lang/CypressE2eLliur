@@ -8,8 +8,8 @@ class LoginSDP {
   get loginButton() { return cy.get('[data-test="login-button"]'); }
 
   login(user_name, user_password) {
-    this.usernameInput.type(user_name);
-    this.passwordInput.type(user_password, { log: false });
+    this.usernameInput.type('user_name');
+    this.passwordInput.type('user_password', { log: false });
     this.loginButton.click();
   }
 }
