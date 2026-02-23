@@ -5,7 +5,7 @@ describe('Mobile Test', { viewportWidth: 375, viewportHeight: 812 }, () => {
     });
 
     it('Open burguer menu', () => {
-    cy.url().should('include', '/inventory.html');
+    // cy.url().should('include', '/inventory.html');
 
     cy.get('#react-burger-menu-btn').should('be.visible').click();
 

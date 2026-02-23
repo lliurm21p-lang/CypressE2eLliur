@@ -3,7 +3,7 @@ class InventorySDP {
   get pageTitle() { return cy.get('.title').should('contain', 'Products'); }
 
   get addBackpack() { 
-      return cy.get('[data-test="add-to-cart-sauce-labs-backpack"]'); 
+      return cy.get('[name="add-to-cart-sauce-labs-backpack"]'); 
   }
 
     get addTShirt() { 
