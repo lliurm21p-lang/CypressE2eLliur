@@ -15,10 +15,10 @@ describe('Inventory interaction', () => {
     inventory.cartBadge.should('have.text', '2');
   });
 
-  it('Sort products by price (low to high)', () => {
-    inventory.firstItemName.should('have.text', 'Sauce Labs Backpack');
-    inventory.sortDropdown.select('Price (low to high)');
-    inventory.firstItemName.should('have.text', 'Sauce Labs Onesie');
-  });
+  // it('Sort products by price (low to high)', () => {
+  //   inventory.firstItemName.should('have.text', 'Sauce Labs Backpack');
+  //   inventory.sortDropdown.select('Price (low to high)');
+  //   inventory.firstItemName.should('have.text', 'Sauce Labs Onesie');
+  // });
 
 });

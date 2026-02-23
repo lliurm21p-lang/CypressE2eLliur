@@ -5,7 +5,7 @@ describe('Login Asserts', () => {
   });
 
   it('Succesfull login with environment variables', () => {
-    // cy.url().should('include', '/inventory.html');
+  cy.url().should('include', '/inventory.html');
   });
 
   it('Failed login with wrong credentials', () => {
