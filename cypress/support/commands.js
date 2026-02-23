@@ -1,7 +1,7 @@
 import { SDPLogin } from './PageObject/SDP_1_Login';
 
-Cypress.Commands.add('loginSauceDemo', (username, password) => {
+Cypress.Commands.add('loginSauceDemo', (user_name, user_password) => {
   SDPLogin.visit();
-  SDPLogin.login(username, password);
+  SDPLogin.login(user_name, user_password);
 });
 
