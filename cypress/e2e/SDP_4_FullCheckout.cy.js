@@ -6,7 +6,7 @@ import { faker } from '@faker-js/faker';
 describe('Cart Interaction', () => {
 
   beforeEach(() => {
-    cy.loginSauceDemo(cy.env('user_name'), cy.env('user_password'));
+    cy.loginSauceDemo(Cypress.env('user_name'), Cypress.env('user_password'));
   });
 
         it('End to end checkout process', () => {
