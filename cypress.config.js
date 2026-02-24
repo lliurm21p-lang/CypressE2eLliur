@@ -7,6 +7,7 @@ module.exports = defineConfig({
   
   e2e: {
     baseUrl: 'https://www.saucedemo.com',
+    experimentalPromptCommand: true,
     
     setupNodeEvents(on, config) {
       
