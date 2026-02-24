@@ -1,0 +1,26 @@
+[
+  {
+    "testName": "Debe fallar si falta el Nombre",
+    "firstName": "",
+    "lastName": "Moreno",
+    "postalCode": "055422",
+    "expectedError": "Error: First Name is required",
+    "isValid": false
+  },
+  {
+    "testName": "Debe fallar si falta el Código Postal",
+    "firstName": "Lliur",
+    "lastName": "Moreno",
+    "postalCode": "",
+    "expectedError": "Error: Postal Code is required",
+    "isValid": false
+  },
+  {
+    "testName": "Debe pasar con todos los datos correctos",
+    "firstName": "Lliur",
+    "lastName": "Moreno",
+    "postalCode": "055422",
+    "expectedError": "",
+    "isValid": true
+  }
+]
