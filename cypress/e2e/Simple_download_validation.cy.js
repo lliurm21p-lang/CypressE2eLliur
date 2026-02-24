@@ -1,4 +1,9 @@
-describe('File download test', () => {
+describe('Pruebas de Descarga de Archivos', () => {
+
+  // Antes de cada 'it', limpiamos el disco duro
+  beforeEach(() => {
+    cy.task('borrarDescargas');
+  });
 
   it('Download file and validate it', () => {
 
