@@ -5,3 +5,9 @@ Cypress.Commands.add('loginSauceDemo', (user_name, user_password) => {
   SDPLogin.login(user_name, user_password);
 });
 
+import { OrangeHRMLogin } from './PageObject/OrangeLogin';
+
+Cypress.Commands.add('loginOrangeHRM', (userohr, passwordohr) => {
+  OrangeHRMLogin.visit();
+  OrangeHRMLogin.login(userohr, passwordohr);
+});

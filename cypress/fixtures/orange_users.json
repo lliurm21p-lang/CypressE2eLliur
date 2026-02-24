@@ -1,0 +1,14 @@
+// [
+//   {
+//     "testName": "Debe iniciar sesión correctamente",
+//     "user": "Admin",
+//     "pass": "admin123",
+//     "shouldFail": false
+//   },
+//   {
+//     "testName": "Debe fallar con credenciales inválidas",
+//     "user": "Admin",
+//     "pass": "clave_equivocada",
+//     "shouldFail": true
+//   }
+// ]
