@@ -1,0 +1,27 @@
+name: Automatizacion API Hotel
+
+# 1. El gatillo: Se ejecuta cada vez que subes código a la rama main
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  pruebas-postman:
+    # 2. La máquina: Pedimos un servidor Linux prestado
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar Newman
+        run: npm install -g newman
+
+      - name: Ejecutar la coleccion de Postman
+        # IMPORTANTE: Verifica que los nombres de los .json coincidan exactamente con los tuyos
+        run: newman run postman/HotelBookings.postman_collection.json -e postman/TestEnvironment.postman_environment.json
