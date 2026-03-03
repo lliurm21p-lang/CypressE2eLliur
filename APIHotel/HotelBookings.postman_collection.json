@@ -1,0 +1,256 @@
+{
+  "info": {
+    "_postman_id": "775b0a82-0eaa-4223-9eb4-55ca69553676",
+    "name": "Hotel Bookings",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52399138",
+    "_collection_link": "https://go.postman.co/collection/52399138-775b0a82-0eaa-4223-9eb4-55ca69553676?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "var datos = pm.response.json();",
+              "pm.environment.set(\"token_hotel\", datos.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"password123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hotel_URL}}/auth",
+          "host": [
+            "{{hotel_URL}}"
+          ],
+          "path": [
+            "auth"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Create Booking",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var respuesta = pm.response.json();\r",
+              "pm.environment.set(\"id_mi_reserva\", respuesta.bookingid);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstname\": \"Ernest\",\r\n    \"lastname\": \"Morales\",\r\n    \"totalprice\": \"50\",\r\n    \"depositpaid\": \"false\",\r\n    \"bookingdates\": {\r\n        \"checkin\": \"20206-05-06\",\r\n        \"checkout\":\"2026-05-10\"\r\n    },\r\n    \"additionalneeds\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hotel_URL}}/booking",
+          "host": [
+            "{{hotel_URL}}"
+          ],
+          "path": [
+            "booking"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Booking",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Your test name\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.firstname).to.contain(\"Saul\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hotel_URL}}/booking/{{id_mi_reserva}}",
+          "host": [
+            "{{hotel_URL}}"
+          ],
+          "path": [
+            "booking",
+            "{{id_mi_reserva}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Change reservation",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token_hotel}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstname\": \"Lliur Ernesto\",\r\n    \"lastname\": \"Moreno Malavé\",\r\n    \"totalprice\": \"50\",\r\n    \"depositpaid\": \"true\",\r\n    \"bookingdates\": {\r\n        \"checkin\": \"20206-05-06\",\r\n        \"checkout\":\"2026-05-10\"\r\n    },\r\n    \"additionalneeds\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hotel_URL}}/booking/{{id_mi_reserva}}",
+          "host": [
+            "{{hotel_URL}}"
+          ],
+          "path": [
+            "booking",
+            "{{id_mi_reserva}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update reservation",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token_hotel}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstname\": \"Lliur\",\r\n    \"lastname\": \"Moreno\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hotel_URL}}/booking/{{id_mi_reserva}}",
+          "host": [
+            "{{hotel_URL}}"
+          ],
+          "path": [
+            "booking",
+            "{{id_mi_reserva}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete reservation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token_hotel}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{hotel_URL}}/booking/{{id_mi_reserva}}",
+          "host": [
+            "{{hotel_URL}}"
+          ],
+          "path": [
+            "booking",
+            "{{id_mi_reserva}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
